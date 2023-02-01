@@ -1,0 +1,13 @@
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": "> 0.25%, not dead", // 浏览器支持范围
+          "useBuiltIns": "usage", // 必须要配置 useBuiltIns，如果不配置，babel 将不会处理 Promise、Map、Set、Symbol 等全局对象；corejs 也要同时配置，2 的版本可以处理全局对象，但实例方法并不处理，所以这里用 3 的版本
+          "corejs": "3"
+        }
+      ]
+    ],
+    "plugins": [["@babel/plugin-proposal-class-properties", { "loose": false }]]
+  }

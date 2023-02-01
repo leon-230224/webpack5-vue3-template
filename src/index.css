@@ -1,0 +1,7 @@
+body {
+    /* background: red; */
+    /* background-image: url(@/assets/login-bg.png); */
+}
+html, body {
+    height: 100%;
+}
