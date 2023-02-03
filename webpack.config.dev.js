@@ -27,6 +27,6 @@ module.exports = (env) => {
             //     },
             // },
         },
-        target: 'web',
+        // target: 'web',
     })
 }

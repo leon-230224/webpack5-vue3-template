@@ -134,7 +134,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         /**
          * Error: vue-loader was used without the corresponding plugin. Make sure to include VueLoaderPlugin in your webpack config
-         * vue-loader要配合VueLoaderPlugin一起使用
+         * vue-loader要配合VueLoaderPlugin一起使用 这个插件是必须的！ 它的职责是将你定义过的其它规则复制并应用到 .vue 文件里相应语言的块
          */
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({

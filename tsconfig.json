@@ -12,8 +12,9 @@
         ],                                   /* Specify library files to be included in the compilation. */
         "allowJs": true,/* 开启此选项vue组建中<script lang=ts>中js才会开启ts检测 */                        /* Allow javascript files to be compiled. */
         "sourceMap": true,                           /* Generates corresponding '.map' file. */
+        "jsx": "preserve",
         // "outFile": "./",                             /* Concatenate and emit output to single file. */
-        "outDir": "./",  /* tsconfig.json文件报错JSON schema for the TypeScript compiler‘s configuration file */                           /* Redirect output structure to the directory. */
+        "outDir": "./dist/",  /* tsconfig.json文件报错JSON schema for the TypeScript compiler‘s configuration file (配置此项，指定存在的目录，"./"不行，报错) */                           /* Redirect output structure to the directory. */
         "rootDir": "./",                             /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
         /* Strict Type-Checking Options */
         "strict": true,                                 /* Enable all strict type-checking options. */
@@ -26,9 +27,9 @@
         }
     },
     "include": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
+        "src/**/*",
         "src/**/*.vue",
+        "src/**/*.jsx",
         "env.d.ts",/* 让ts可以识别vue文件，否则引入vue组建会报错Cannot find module '@/app.vue' or its corresponding type declarations.ts(2307) */
     ],
     "exclude": [

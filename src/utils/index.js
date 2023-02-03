@@ -1,4 +1,4 @@
-console.log('util tool2')
+console.log('util tool2w2')
 
 
 export const num = 11

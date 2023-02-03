@@ -21,6 +21,7 @@ specifiers:
   typescript: ^4.9.5
   vue: ^3.2.45
   vue-loader: ^17.0.1
+  vue-template-compiler: ^2.7.14
   webpack: ^5.75.0
   webpack-cli: ^5.0.1
   webpack-dev-server: ^4.11.1
@@ -40,7 +41,7 @@ devDependencies:
   core-js: 3.27.2
   cross-env: 7.0.3
   css-loader: 6.7.3_webpack@5.75.0
-  fork-ts-checker-webpack-plugin: 7.3.0_hhrrucqyg4eysmfpujvov2ym5u
+  fork-ts-checker-webpack-plugin: 7.3.0_3vu26w62dupooczhvlkrwvyfsa
   html-webpack-plugin: 5.5.0_webpack@5.75.0
   mini-css-extract-plugin: 2.7.2_webpack@5.75.0
   sass: 1.57.1
@@ -49,6 +50,7 @@ devDependencies:
   ts-loader: 9.4.2_hhrrucqyg4eysmfpujvov2ym5u
   typescript: 4.9.5
   vue-loader: 17.0.1_vue@3.2.45+webpack@5.75.0
+  vue-template-compiler: 2.7.14
   webpack: 5.75.0_webpack-cli@5.0.1
   webpack-cli: 5.0.1_uaydpeuxkjjcxdbyfgk36cjdxi
   webpack-dev-server: 4.11.1_rjsyjcrmk25kqsjzwkvj3a2evq
@@ -2229,6 +2231,10 @@ packages:
     resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
     dev: false
 
+  /de-indent/1.0.2:
+    resolution: {integrity: sha1-sgOOhG3DO6pXlhKNCAS0VbjB4h0=}
+    dev: true
+
   /debug/2.6.9:
     resolution: {integrity: sha1-XRKFFd8TT/Mn6QpMk/Tgd6U2NB8=}
     peerDependencies:
@@ -2606,7 +2612,7 @@ packages:
         optional: true
     dev: true
 
-  /fork-ts-checker-webpack-plugin/7.3.0_hhrrucqyg4eysmfpujvov2ym5u:
+  /fork-ts-checker-webpack-plugin/7.3.0_3vu26w62dupooczhvlkrwvyfsa:
     resolution: {integrity: sha512-IN+XTzusCjR5VgntYFgxbxVx3WraPRnKehBFrf00cMSrtUuW9MsG9dhL6MWpY6MkjC3wVwoujfCDgZZCQwbswA==}
     engines: {node: '>=12.13.0', yarn: '>=1.0.0'}
     peerDependencies:
@@ -2630,6 +2636,7 @@ packages:
       semver: 7.3.8
       tapable: 2.2.1
       typescript: 4.9.5
+      vue-template-compiler: 2.7.14
       webpack: 5.75.0_webpack-cli@5.0.1
     dev: true
 
@@ -4285,6 +4292,13 @@ packages:
       loader-utils: 2.0.4
       vue: 3.2.45
       webpack: 5.75.0_webpack-cli@5.0.1
+    dev: true
+
+  /vue-template-compiler/2.7.14:
+    resolution: {integrity: sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ==}
+    dependencies:
+      de-indent: 1.0.2
+      he: 1.2.0
     dev: true
 
   /vue/3.2.45:
