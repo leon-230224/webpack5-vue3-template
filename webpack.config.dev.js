@@ -19,13 +19,14 @@ module.exports = (env) => {
             // },
             port: 8080,
             hot: true,
-            // proxy: {
-            //     '/api': {
-            //       target: 'http://localhost:3000',
-            //       pathRewrite: { '^/api': '' }, // 如果不希望传递/api，则需要重写路径
-            //       secure: false, // 默认情况下，将不接受在 HTTPS 上运行且证书无效的后端服务器,所以secure设置false
-            //     },
-            // },
+            proxy: {
+                '/api': {
+                  target: 'http://localhost:3000',
+                  pathRewrite: { '^/api': '' }, // 如果不希望传递/api，则需要重写路径
+                  changeOrigin: true,
+                //   secure: false, // 默认情况下，将不接受在 HTTPS 上运行且证书无效的后端服务器,所以secure设置false
+                },
+            },
         },
         // target: 'web',
     })
