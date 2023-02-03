@@ -1,19 +1,18 @@
 <template>
-    <div class="app-vue">appss说是 s</div>
+    <div :class="count">appss说是 s</div>
     <el-button type="primary" @click="handleClick">{{ count }}</el-button>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-const count = ref(0)
+const count = ref('red')
 
 const handleClick = () => {
-    console.log('++++111223332f、----')
-    count.value++
+    count.value = count.value === 'red' ? 'app-vue' : 'red'
 }
 
 </script>
 <style lang="scss" scoped>
 .app-vue {
-    color: red;
+    color: blue;
 }
 </style>

@@ -23,7 +23,10 @@ module.exports = {
      */
     stats: 'errors-warnings',//只在发生错误或有新的编译时输出显示log信息输出
     optimization: {
-        runtimeChunk: 'single'
+        runtimeChunk: 'single' // 生成一个runtime[hasn].js文件，待研究
+    },
+    externals: { // 外部扩展
+        // vue: 'Vue', // <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js" rel="stylesheet" type="text/javascript"></script> index.html中添加cdn，webpack不会打包配置的外部扩展
     },
     module: {
         rules: [
