@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    
+        /* Basic Options */
+        "target": "es5",                                /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', 'ES2021', or 'ESNEXT'. */
+        // "module": "commonjs",                           /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+        "lib": [
+            "es6",
+            "dom",
+            "es2017"
+        ],                                   /* Specify library files to be included in the compilation. */
+        "allowJs": true,/* 开启此选项vue组建中<script lang=ts>中js才会开启ts检测 */                        /* Allow javascript files to be compiled. */
+        "sourceMap": true,                           /* Generates corresponding '.map' file. */
+        // "outFile": "./",                             /* Concatenate and emit output to single file. */
+        "outDir": "./",  /* tsconfig.json文件报错JSON schema for the TypeScript compiler‘s configuration file */                           /* Redirect output structure to the directory. */
+        "rootDir": "./",                             /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+        /* Strict Type-Checking Options */
+        "strict": true,                                 /* Enable all strict type-checking options. */
+        "esModuleInterop": true,                        /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+        /* Advanced Options */
+        "skipLibCheck": true,                           /* Skip type checking of declaration files. */
+        "forceConsistentCasingInFileNames": true,        /* Disallow inconsistently-cased references to the same file. */
+        "paths": {
+            "@/*": ["./src/*"]  // 这里需要配置 Cannot find module '@/utils' or its corresponding type declarations.ts(2307)
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "env.d.ts",/* 让ts可以识别vue文件，否则引入vue组建会报错Cannot find module '@/app.vue' or its corresponding type declarations.ts(2307) */
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
+  

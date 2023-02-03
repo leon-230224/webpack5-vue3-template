@@ -10,10 +10,11 @@ module.exports = {
             "@": path.resolve(__dirname, 'src'),
         }
     },
-    entry: './src/index.js',
+    entry: './src/main.ts',
     output: {
         filename: 'js/[name].[contenthash:8].js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true, // Clean the output directory before emit.
         // publicPath: '' // 如果资源路径是相对路径，那么publicpath的值会拼接到资源路径中，一般找不到资源和这个值相关
     },
     /**
@@ -21,6 +22,9 @@ module.exports = {
      * errors-warnings | errors-only 等8个特定的预设选项给统计信息输出
      */
     stats: 'errors-warnings',//只在发生错误或有新的编译时输出显示log信息输出
+    optimization: {
+        runtimeChunk: 'single'
+    },
     module: {
         rules: [
             {
@@ -99,7 +103,24 @@ module.exports = {
                         cacheCompression: true // 会使用 Gzip 压缩每个 Babel transform 输出,  如果你的项目中有数千个文件需要压缩转译，那么设置此选项可能会从中收益。
                     }
                 }
-            }
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'ts-loader', /* https://github.com/TypeStrong/ts-loader */
+                        options: {
+                            // 指定特定的ts编译配置，为了区分脚本的ts配置
+                            // 注意这里的路径问题，按照自己项目来配置
+                            // configFile: path.resolve(__dirname, './tsconfig.json'), // 如果项目包tsconfig.json not found，说明这里配置路径有问题
+                            appendTsSuffixTo: [/\.vue$/],
+                            /* 只做语言转换，而不做类型检查, 这里如果不设置成TRUE，就会HMR 报错 */
+                            transpileOnly: true,
+                        }
+                    }
+                ]
+            },
         ]
     },
     plugins: [
@@ -117,7 +138,7 @@ module.exports = {
          */
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
-            filename: isDev ? 'css/[name].css' : 'css/[name].[hash:8].css',
+            filename: isDev ? 'css/[name].css' : 'css/[name].[hash:8].css', // 分离样式文件
         }),
     ]
 }
