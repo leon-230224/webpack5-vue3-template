@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const webpack = require('webpack')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path')
@@ -25,8 +26,9 @@ module.exports = {
     optimization: {
         runtimeChunk: 'single' // 生成一个runtime[hasn].js文件，待研究
     },
-    externals: { // 外部扩展
+    externals: { // 外部扩展 
         // vue: 'Vue', // <script src="https://unpkg.com/vue@3.2.31/dist/vue.global.js" rel="stylesheet" type="text/javascript"></script> index.html中添加cdn，webpack不会打包配置的外部扩展
+        // lodash: '_' // 这种方式有个问题，就是在cnd使不使用都会加载，如果不使用不加载，使用在加载，可以用HtmlWebpackExternalsPlugin这个插件
     },
     module: {
         rules: [
@@ -143,5 +145,29 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: isDev ? 'css/[name].css' : 'css/[name].[hash:8].css', // 分离样式文件
         }),
+        /**
+         * 将key作为全局变量，在文件中不用引入，可以直接使用即可
+         * 缺点：不能全局引用也就是在window._找不到，插件将变量注入到函数执行上下文中，全局没有
+         * 比如在html中不可用，想在全局用，可以用用expose-loader这个loader
+         */
+        new webpack.ProvidePlugin({
+            _: 'lodash'
+        }),
+        /**
+         * externals: { // 外部扩展 
+            // lodash: '_' // 这种方式有个问题，就是在cnd使不使用都会加载，如果不使用不加载，使用在加载，可以用HtmlWebpackExternalsPlugin这个插件
+            },
+            不用再html中手动引入cdn了
+            外部扩展最优解决方案
+         */
+        // new HtmlWebpackExternalsPlugin({
+        //     externals: [
+        //         {
+        //             module: 'lodash',
+        //             entry: 'https://cnd地址',
+        //             global: '_' // 全局变量，在任意地方使用
+        //         }
+        //     ]
+        // })
     ]
 }

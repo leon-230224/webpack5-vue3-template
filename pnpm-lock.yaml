@@ -15,6 +15,7 @@ specifiers:
   html-webpack-plugin: ^5.5.0
   koa: ^2.14.1
   koa-router: ^12.0.0
+  lodash: ^4.17.21
   mini-css-extract-plugin: ^2.7.2
   nodemon: ^2.0.20
   sass: ^1.57.1
@@ -49,6 +50,7 @@ devDependencies:
   css-loader: 6.7.3_webpack@5.75.0
   fork-ts-checker-webpack-plugin: 7.3.0_3vu26w62dupooczhvlkrwvyfsa
   html-webpack-plugin: 5.5.0_webpack@5.75.0
+  lodash: 4.17.21
   mini-css-extract-plugin: 2.7.2_webpack@5.75.0
   sass: 1.57.1
   sass-loader: 13.2.0_sass@1.57.1+webpack@5.75.0
@@ -3295,7 +3297,7 @@ packages:
     dev: true
 
   /lodash/4.17.21:
-    resolution: {integrity: sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=}
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
   /lower-case/2.0.2:
     resolution: {integrity: sha1-b6I3xj29xKgsoP2ILkci3F5jTig=}

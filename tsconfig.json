@@ -30,11 +30,15 @@
         "src/**/*",
         "src/**/*.vue",
         "src/**/*.jsx",
+        "global.d.ts",
         "env.d.ts",/* 让ts可以识别vue文件，否则引入vue组建会报错Cannot find module '@/app.vue' or its corresponding type declarations.ts(2307) */
     ],
     "exclude": [
         "node_modules",
         "dist"
+    ],
+    "types": [
+        "lodash"
     ]
 }
   

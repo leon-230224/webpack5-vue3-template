@@ -9,6 +9,7 @@ const count = ref('red')
 axios.defaults.baseURL = '/api'
 axios.get('user').then(res => console.log(res,'resss'))
 
+console.log(_.join([1,2,3]),'join')
 const handleClick = () => {
     count.value = count.value === 'red' ? 'app-vue' : 'red'
 }
