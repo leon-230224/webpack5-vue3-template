@@ -4,5 +4,6 @@ module.exports = (env) => {
     return merge(baseConfig, {
         // mode: 'none',
         mode: 'production',
+        devtool: 'source-map'
     })
 }
