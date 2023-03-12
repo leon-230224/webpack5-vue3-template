@@ -34,7 +34,7 @@ module.exports = {
      */
     stats: 'errors-warnings',//只在发生错误或有新的编译时输出显示log信息输出
     optimization: {
-        runtimeChunk: 'single', // 生成一个runtime[hasn].js文件，待研究
+        runtimeChunk: 'single', // //会将Webpack在浏览器端运行时需要的代码单独抽离到一个文件
         minify: [
             /**
              * webpack4默认要手动配置，5生产环境自动压缩js和css
